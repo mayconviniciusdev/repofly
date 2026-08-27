@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Buscador de Repositórios</title>
+    
+    <link rel="stylesheet" href="style.css"/>
+    <script src="script.js" defer></script>
+  </head>
+
+  <body>
+    <!-- Identidade visual e marca da aplicação. -->
+    <header>
+      <p class="name barlow-condensed-semibold">Repofly —</p>
+    </header>
+
+    <main class="app-shell">
+      <p class="lead">🔭 Pesquise repositórios por termo, usuário ou pelos dois critérios.</p>
+
+      <!-- Os dois filtros são opcionais individualmente, mas pelo menos um deve ser preenchido. -->
+      <section class="card search-card" aria-labelledby="search">
+        <div id="user-filter" class="term-filter">
+          <label for="term-input">Termo</label>
+          <input id="term-input" name="term" type="text" placeholder="Ex: javascript" autocomplete="off"/>
+        </div>
+
+        <div id="user-filter" class="user-filter">
+          <label for="user-input">Nome do usuário</label>
+          <input id="user-input" name="user" type="text" placeholder="Ex: torvalds" autocomplete="off"/>
+        </div>
+      </section>
+
+      <!-- O JavaScript atualiza este bloco com resultados, carregamento, vazio ou erro. -->
+      <section class="card results-card" aria-live="polite">
+        <div id="results" class="state state-default"></div>
+        <div id="pagination" class="pagination" aria-label="Pagination controls"></div>
+      </section>
+    </main>
+
+    <!-- Modal preenchido dinamicamente com os detalhes do repositório selecionado. -->
+    <div id="repository-modal" class="modal" hidden>
+      <div class="modal-backdrop" data-close-modal></div>
+      <section class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <button class="modal-close" type="button" aria-label="Fechar detalhes" data-close-modal>&times;</button>
+        <div id="modal-body" class="modal-body"></div>
+      </section>
+    </div>
+  </body>
+</html>
